@@ -1,0 +1,52 @@
+{
+  "seller": [
+    {
+      "id": "0ef8",
+      "username": "koinegsegg",
+      "email": "krai100200@gmail.com",
+      "password": "Krishnarai"
+    },
+    {
+      "id": "7a7d",
+      "username": "admin",
+      "email": "f@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "0d6d",
+      "username": "admin",
+      "email": "tina@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "eaa6",
+      "username": "admin",
+      "email": "tina@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "4299",
+      "username": "admin",
+      "email": "meena@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "4500",
+      "username": "admin",
+      "email": "meena@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "3bd9",
+      "username": "admin",
+      "email": "fifa@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "9233",
+      "username": "admin",
+      "email": "fifa123@gmail.com",
+      "password": "123456"
+    }
+  ]
+}

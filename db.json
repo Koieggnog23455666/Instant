@@ -47,6 +47,12 @@
       "username": "admin",
       "email": "fifa123@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "3683",
+      "username": "admin",
+      "email": "giga@gmail.com",
+      "password": "123456"
     }
   ]
 }

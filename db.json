@@ -53,6 +53,18 @@
       "username": "admin",
       "email": "giga@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "88e4",
+      "username": "admin",
+      "email": "pp@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "a346",
+      "username": "admin",
+      "email": "pp@gmail.com",
+      "password": "123456"
     }
   ]
 }

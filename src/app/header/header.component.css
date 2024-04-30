@@ -1,37 +1,71 @@
 .nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    width: auto;
+    background-color: #FECD45;
+}
+.nav h1{
+    font-family: "Bebas Neue", sans-serif;
 }
 ul{
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     list-style-type: none;
+    padding: 0;
+    font-family: "Bebas Neue", sans-serif;
 }
+
 .nav-search{
     display: flex;
-    flex: 1;
+    
+    width: 30%;
     margin-left: 5%;
     margin-right: 5%;
 }
+
 .nav-search input{
-    border: 1px solid black;
+    border: 1px solid #2568FB;
     border-right: 0;
     flex: 1;
     height: 30px;
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px
+    border-bottom-left-radius: 10px;
+    padding-left: 7px; 
+}
+.nav-search input:focus{
+    border: 1px solid #2568FB;
 }
 .nav-search button{
     border: 1px solid black;
     border-left: 0;
     height: 30px;
+color: #FECD45;
+   background-color:  black;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px
 }
 ul li{
     padding-left: 10%;
+    
 }
 li a{
     text-decoration: none;
+    color: black;
+}
+.logo{
+    color: #2568FB;
+}
+
+.sellerItems{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.sellerSel{
+    
+    width:15vw ;
+}
+li a:hover{
+color: #2568FB;
 }

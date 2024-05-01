@@ -1,11 +1,29 @@
+<!-- Sign Up Area -->
 <div class="common_form">
-    <div class="sign-up">
-        <h1>Seller SignUp</h1>
+    <div *ngIf="!showLogin " class="sign-up">
+        <h1 class="head">Seller SignUp</h1>
         <form class="formes" #sellerSignup="ngForm" (ngSubmit)="signUp(sellerSignup.value)">
-            <input type="text" ngModel name="username" placeholder="Enter Username">
-            <input type="text" ngModel name="email" placeholder="Email address">
-            <input type="password" ngModel name="password" placeholder="Password">
-            <button >Sign Up</button>
+            <input type="text" class="form-input" ngModel name="username" placeholder="Enter Username">
+            <input type="text" class="form-input" ngModel name="email" placeholder="Email address">
+            <input type="password" class="form-input" ngModel name="password" placeholder="Password">
+          <div class="below">
+            <div><span>Already a Member? </span><a (click)="openLogin()"> Login</a></div>
+            <button class="button" >Sign Up</button>
+          </div>
+        </form>
+    </div>
+
+    <!-- Login Area -->
+    <div *ngIf="showLogin " class="login">
+        <h1 class="head">Seller Login</h1>
+        <p style="color: red;">{{authError}}</p>
+        <form class="formes" #sellerLogin="ngForm" (ngSubmit)="login(sellerLogin.value)">
+            <input type="text" class="form-input" ngModel name="email" placeholder="Email address">
+            <input type="password" class="form-input" ngModel name="password" placeholder="Password">
+          <div class="below">
+            <div><span>Not a Member? </span><a (click)="openSignUp()" > Sign Up</a></div>
+            <button class="button" >Login</button>
+          </div>
         </form>
     </div>
    

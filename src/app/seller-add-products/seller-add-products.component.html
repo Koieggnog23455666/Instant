@@ -3,14 +3,20 @@
    <div class="add-content"> <h1>Add Product</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta tempora mollitia officiis! Natus provident incidunt eveniet, magni velit aut non harum accusantium exercitationem?</p></div>
    
-    <form class="common_form2" #addProduct="ngForm" (ngSubmit)="submit(addProduct.value)">
+    <form class="common_form2" #addProduct="ngForm" (ngSubmit)="submit(addProduct.value)" novalidate>
         <p>{{addedProduct}}</p>
-        <input type="text" placeholder="Enter Product Name" name="name"ngModel>
-        <input type="text" placeholder="Enter Product Price" name="price"ngModel>
-        <input type="text" placeholder="Enter Product Color" name="color"ngModel>
-        <input type="text" placeholder="Enter Product Category" name="category"ngModel>
-        <input type="text" placeholder="Enter Product Description" name="description"ngModel>
-        <input type="text" placeholder="Enter Product Image URl" name="imageUrl"ngModel>
+        <span *ngIf="name.invalid && name.touched" style="color:red;">Name is required</span>
+        <input type="text" placeholder="Enter Product Name" name="name" #name="ngModel" required ngModel>
+        <span *ngIf="price.invalid && price.touched" style="color:red;">Price is required</span>
+        <input type="text" placeholder="Enter Product Price" name="price" #price="ngModel" required ngModel>
+        <span *ngIf="color.invalid && color.touched" style="color:red;">Color is required</span>
+        <input type="text" placeholder="Enter Product Color" name="color" #color="ngModel" required ngModel>
+        <span *ngIf="category.invalid && category.touched" style="color:red;">Category is required</span>
+        <input type="text" placeholder="Enter Product Category" name="category" #category="ngModel" required ngModel>
+        <span *ngIf="description.invalid && description.touched" style="color:red;">Description is required</span>
+        <input type="text" placeholder="Enter Product Description" name="description" #description="ngModel" required ngModel>
+        <input type="file" (change)="onFileSelected($event)" placeholder="Enter Product Image URl" name="imageUrl" #imageUrl="ngModel" required ngModel>
+        <!-- <button  (click)="convertFileToUrl()">Upload</button> -->
         <button >Add</button>
     </form>
 </div></div>

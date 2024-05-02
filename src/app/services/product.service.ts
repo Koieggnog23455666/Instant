@@ -15,4 +15,7 @@ return this.http.post(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT,data)
   showProduct(){
 return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT)
   }
+  deleteProduct(id:string){
+return this.http.delete<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+id)
+  }
 }

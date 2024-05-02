@@ -9,24 +9,38 @@ import { subscribe } from 'diagnostics_channel';
   styleUrl: './seller-add-products.component.css'
 })
 export class SellerAddProductsComponent implements OnInit {
-productList:Product[] | undefined
-  addedProduct:string|undefined
-  constructor(private product: ProductService){}
+  productList: Product[] | undefined
+  addedProduct: string | undefined
+  imageUrl: string | undefined;
+  selectedFile!: File; 
+  
+  constructor(private product: ProductService) { }
   ngOnInit(): void {
-    this.product.showProduct().subscribe((res)=>{
-this.productList=res
+    this.product.showProduct().subscribe((res) => {
+      this.productList = res
     })
   }
-  submit(data:Product){
+  submit(data: Product) {
     console.log(data)
-    this.product.addProduct(data).subscribe((res)=>{
-console.log(res)
-if(res){
-  this.addedProduct = "Product Added Successfully"
-}setTimeout(() => {
-  this.addedProduct=undefined
-}, 3000);
+    this.product.addProduct(data).subscribe((res) => {
+      console.log(res)
+      if (res) {
+        this.addedProduct = "Product Added Successfully"
+      } setTimeout(() => {
+        this.addedProduct = undefined
+      }, 3000);
     })
+  }
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
   }
 
+  convertFileToUrl() {
+    const reader = new FileReader();
+    reader.readAsDataURL(this.selectedFile);
+    reader.onload = () => {
+      this.imageUrl = reader.result as string;
+    };
+  }
+ 
 }

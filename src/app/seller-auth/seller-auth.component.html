@@ -2,7 +2,7 @@
 <div class="common_form">
     <div *ngIf="!showLogin " class="sign-up">
         <h1 class="head">Seller SignUp</h1>
-        <form class="formes" #sellerSignup="ngForm" (ngSubmit)="signUp(sellerSignup.value)">
+        <form class="formes" #sellerSignup="ngForm" (ngSubmit)="signup(sellerSignup.value)">
             <input type="text" class="form-input" ngModel name="username" placeholder="Enter Username">
             <input type="text" class="form-input" ngModel name="email" placeholder="Email address">
             <input type="password" class="form-input" ngModel name="password" placeholder="Password">
@@ -17,7 +17,7 @@
     <div *ngIf="showLogin " class="login">
         <h1 class="head">Seller Login</h1>
         <p style="color: red;">{{authError}}</p>
-        <form class="formes" #sellerLogin="ngForm" (ngSubmit)="login(sellerLogin.value)">
+        <form class="formes" #sellerLogin="ngForm" (ngSubmit)="Login(sellerLogin.value)">
             <input type="text" class="form-input" ngModel name="email" placeholder="Email address">
             <input type="password" class="form-input" ngModel name="password" placeholder="Password">
           <div class="below">

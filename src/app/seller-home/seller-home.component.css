@@ -1,0 +1,23 @@
+table{
+    text-align: left;
+    color: black;
+    border-collapse: collapse;
+}
+table th,table td{
+    border: 1px solid black;
+    padding: 10px;
+    min-height: 160px;
+    font-family:"Poppins", sans-serif;
+}
+img{
+    width: 150px;
+    height: 150px;
+}
+.product-list{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    background-color: #FECD45;
+}

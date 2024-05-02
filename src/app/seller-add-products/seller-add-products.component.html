@@ -1,0 +1,16 @@
+<div class="sub-main">
+    <div class="add-product">
+   <div class="add-content"> <h1>Add Product</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta tempora mollitia officiis! Natus provident incidunt eveniet, magni velit aut non harum accusantium exercitationem?</p></div>
+   
+    <form class="common_form2" #addProduct="ngForm" (ngSubmit)="submit(addProduct.value)">
+        <p>{{addedProduct}}</p>
+        <input type="text" placeholder="Enter Product Name" name="name"ngModel>
+        <input type="text" placeholder="Enter Product Price" name="price"ngModel>
+        <input type="text" placeholder="Enter Product Color" name="color"ngModel>
+        <input type="text" placeholder="Enter Product Category" name="category"ngModel>
+        <input type="text" placeholder="Enter Product Description" name="description"ngModel>
+        <input type="text" placeholder="Enter Product Image URl" name="imageUrl"ngModel>
+        <button >Add</button>
+    </form>
+</div></div>

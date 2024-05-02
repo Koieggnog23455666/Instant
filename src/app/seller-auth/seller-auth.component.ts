@@ -15,14 +15,11 @@ export class SellerAuthComponent implements OnInit {
   
   authError:string=''
 constructor(private seller:SellerService,private router:Router){
-  
 }
   ngOnInit(): void {
     this.seller.reloaderSeller()
-    
   }
   signUp(data:SignUp):void{
-    
 this.seller.userSignUp(data)
   }
   openLogin(){

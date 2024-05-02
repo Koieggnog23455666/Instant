@@ -8,14 +8,14 @@
     <ul *ngSwitchCase="'default'">
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/seller-auth">Seller</a></li>
-        <li><a  routerLink="/seller-auth">Login</a></li>
+        <li><a>Login</a></li>
         <li><a >Cart</a></li>
     </ul>
     <ul *ngSwitchCase="'seller'" class="sellerItems" >
-        <li class="sellerSel"><a routerLink="/">Product list</a></li>
-        <li class="sellerSel"><a routerLink="/seller-auth">Add Product</a></li>
+        <li class="sellerSel"><a routerLink="/seller-home">Product list</a></li>
+        <li class="sellerSel"><a routerLink="/seller-add-products">Add Product</a></li>
         <li class="sellerSel"><a (click)="logOut()" >Log out</a></li>
-        <li class="sellerSel"><a >{{sellerName}}</a></li>
+        <li class="sellerSel"><a >{{sellerName|titlecase}}</a></li>
     </ul>
   </div>
 </nav>

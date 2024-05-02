@@ -27,11 +27,12 @@ export class SellerService {
   }
 
   userSignUp(data: SignUp) {
-    return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {
+     this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {
       this.isUserLoggedIn.next(true)
       localStorage.setItem('seller', JSON.stringify(res.body))
       this.router.navigate(['seller-home'])
     })
+    return false
 
   }
   

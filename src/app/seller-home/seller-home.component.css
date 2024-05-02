@@ -1,13 +1,14 @@
 table{
     text-align: center;
     color: black;
-    border-collapse: collapse;
+    border-collapse:collapse
 }
 table th,table td{
     border: 1px solid black;
     padding: 10px;
     min-height: 160px;
     font-family:"Poppins", sans-serif;
+    
 }
 img{
     width: 150px;
@@ -20,4 +21,10 @@ img{
     text-align: center;
     padding: 20px;
     background-color: #FECD45;
+}
+.action{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ 
 }

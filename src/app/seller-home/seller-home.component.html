@@ -14,14 +14,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let product of productList">
-                <td ><img src="{{product.imageUrl}}" ></td>
+                <td ><img src="{{product.image}}" ></td>
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.color}}</td>
                 <td>{{product.category}}</td>
                 <td>{{product.description}}</td>
-                <td>
+                <td class="action">
                     <fa-icon (click)="deleteProduct(product.id)" [icon]="icon"></fa-icon>
+                    <a routerLink="/seller-update-product/{{product.id}}"><fa-icon [icon]="editIcon"></fa-icon></a>
                 </td>
             </tr>
         </tbody>

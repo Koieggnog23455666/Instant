@@ -1,1 +1,22 @@
-<p>seller-update-product works!</p>
+<div class="sub-main">
+    <div class="update-product">
+   <div class="update-content"> <h1>Update Product</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta tempora mollitia officiis! Natus provident incidunt eveniet, magni velit aut non harum accusantium exercitationem?</p></div>
+   
+    <form class="common_form2" #updateProduct="ngForm" (ngSubmit)="submit(updateProduct.value)" novalidate>
+        <p>{{updatedMessage}}</p>
+        <span *ngIf="name.invalid && name.touched" style="color:red;">Name is required</span>
+        <input type="text" placeholder="Enter Product Name" name="name" #name="ngModel" required ngModel="{{productData?.name}}">
+        <span *ngIf="price.invalid && price.touched" style="color:red;">Price is required</span>
+        <input type="text" placeholder="Enter Product Price" name="price" #price="ngModel" required ngModel="{{productData?.price}}">
+        <span *ngIf="color.invalid && color.touched" style="color:red;">Color is required</span>
+        <input type="text" placeholder="Enter Product Color" name="color" #color="ngModel" required ngModel="{{productData?.color}}">
+        <span *ngIf="category.invalid && category.touched" style="color:red;">Category is required</span>
+        <input type="text" placeholder="Enter Product Category" name="category" #category="ngModel" required ngModel="{{productData?.category}}">
+        <span *ngIf="description.invalid && description.touched" style="color:red;">Description is required</span>
+        <input type="text" placeholder="Enter Product Description" name="description" #description="ngModel" required ngModel="{{productData?.description}}">
+        <input type="text"  placeholder="Enter Product Image URl" name="imageUrl" #imageUrl="ngModel" required ngModel="{{productData?.image}}">
+        <!-- <button  (click)="convertFileToUrl()">Upload</button> -->
+        <button >Update</button>
+    </form>
+</div></div>

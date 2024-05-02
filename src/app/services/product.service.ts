@@ -18,4 +18,10 @@ return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT)
   deleteProduct(id:string){
 return this.http.delete<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+id)
   }
+  getProduct(id:string){
+    return this.http.get<Product>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+id)
+  }
+  updateProduct(product:Product){
+    return this.http.put<Product>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+product.id,product)
+  }
 }

@@ -13,7 +13,7 @@ export interface Product{
     price:number,
     category:string,
     color:string,
-    imageUrl:string,
+    image:string,
     description:string,
     id:string
 }

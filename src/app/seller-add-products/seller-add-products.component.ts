@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interface';
 import { subscribe } from 'diagnostics_channel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seller-add-products',
@@ -14,7 +15,7 @@ export class SellerAddProductsComponent implements OnInit {
   imageUrl: string | undefined;
   selectedFile!: File; 
   
-  constructor(private product: ProductService) { }
+  constructor(private product: ProductService,private router:Router) { }
   ngOnInit(): void {
     this.product.showProduct().subscribe((res) => {
       this.productList = res
@@ -28,6 +29,7 @@ export class SellerAddProductsComponent implements OnInit {
         this.addedProduct = "Product Added Successfully"
       } setTimeout(() => {
         this.addedProduct = undefined
+        this.router.navigate(['/seller-home'])
       }, 3000);
     })
   }

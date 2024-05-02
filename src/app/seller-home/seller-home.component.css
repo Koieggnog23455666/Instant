@@ -1,3 +1,5 @@
+
+
 table{
     text-align: center;
     color: black;
@@ -11,8 +13,9 @@ table th,table td{
     
 }
 img{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
 }
 .product-list{
     display: flex;
@@ -21,10 +24,15 @@ img{
     text-align: center;
     padding: 20px;
     background-color: #FECD45;
+    font-family:"Poppins", sans-serif;
 }
 .action{
     display: flex;
     justify-content: space-around;
     align-items: center;
- 
+
+}
+.editIcon{
+    color: black;
+    cursor: pointer;
 }

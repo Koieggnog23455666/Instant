@@ -4,10 +4,7 @@
         <input type="search" placeholder="Search items">
         <button>Search</button>
     </div>
-<<<<<<< HEAD
     
-=======
->>>>>>> 131f5bf94f8fdb2dae8eeb3e7c2969de4592d45d
   <div [ngSwitch]="menuType" class="items">
     <ul *ngSwitchCase="'default'">
         <li><a routerLink="/">Home</a></li>
@@ -16,15 +13,10 @@
         <li><a >Cart</a></li>
     </ul>
     <ul *ngSwitchCase="'seller'" class="sellerItems" >
-<<<<<<< HEAD
         <li class="sellerSel"><a routerLink="/seller-home">Product list</a></li>
         <li class="sellerSel"><a routerLink="/seller-add-product">Add Product</a></li>
-=======
-        <li class="sellerSel"><a routerLink="/">Product list</a></li>
-        <li class="sellerSel"><a routerLink="/seller-auth">Add Product</a></li>
->>>>>>> 131f5bf94f8fdb2dae8eeb3e7c2969de4592d45d
         <li class="sellerSel"><a (click)="logOut()" >Log out</a></li>
-        <li class="sellerSel"><a >{{sellerName}}</a></li>
+        <li class="sellerSel"><a >{{sellerName|titlecase}}</a></li>
     </ul>
   </div>
 </nav>

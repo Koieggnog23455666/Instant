@@ -46,7 +46,6 @@ color: #FECD45;
 }
 ul li{
     padding-left: 10%;
-
 }
 li a{
     text-decoration: none;
@@ -62,7 +61,6 @@ li a{
     justify-content: space-around;
 }
 .sellerSel{
-
     width:15vw ;
 }
 li a:hover{

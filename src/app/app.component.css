@@ -3,7 +3,9 @@ body{
 
 }
 
-/* .container{
-    margin-left: 1%;
-    margin-right: 1%;
-} */
+.container{
+    width: 90vh;
+    margin-left: 0px;
+    margin-right: 0px;
+
+ }

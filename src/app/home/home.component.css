@@ -1,0 +1,67 @@
+*{
+    background-color: #FECD45;
+}
+.popular-product{
+    object-fit: contain;
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+}
+.carousel-control-prev-icon,.carousel-control-next-icon{
+    background-color: black;
+    color: black;
+}
+#ngb-carousel-0-previous{
+    background-color: black;
+}
+.coro{
+    width: 80%;
+}
+.slide{
+    width: 100%;
+   
+}
+.carousel-caption{
+    border-radius: 25px;
+    
+    width: 500px;
+    margin-left: 18%;
+    
+}
+.carousel-caption h3,p{
+background-color: transparent;
+color: #2568FB;
+
+}
+.active{
+    color: #2568FB;
+}
+.pro-image{
+height: 20vh;
+    object-fit: contain;
+    padding-top: 10px;
+}
+.button{
+    display: flex;
+    justify-content: space-around;
+}.sub-main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding-left: 20px;
+    
+}
+.card-body a{
+    background-color: #2568FB;
+}
+.card-text{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.sub-main2{
+    width: 100%;
+    display: flex;
+}

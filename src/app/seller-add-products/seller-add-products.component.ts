@@ -12,9 +12,8 @@ import { Router } from '@angular/router';
 export class SellerAddProductsComponent implements OnInit {
   productList: Product[] | undefined
   addedProduct: string | undefined
-  imageUrl: string | undefined;
+  imageUrl: string =''
   selectedFile!: File; 
-  
   constructor(private product: ProductService,private router:Router) { }
   ngOnInit(): void {
     this.product.showProduct().subscribe((res) => {
@@ -22,8 +21,8 @@ export class SellerAddProductsComponent implements OnInit {
     })
   }
   submit(data: Product) {
-    console.log(data)
-    this.product.addProduct(data).subscribe((res) => {
+    console.log("Data",{...data,image:this.imageUrl})
+    this.product.addProduct({...data,image:this.imageUrl}).subscribe((res) => {
       console.log(res)
       if (res) {
         this.addedProduct = "Product Added Successfully"
@@ -34,15 +33,18 @@ export class SellerAddProductsComponent implements OnInit {
     })
   }
   onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-  }
+    const file: File = event.target.files[0];
+    if(file){
+      const reader:FileReader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.imageUrl = reader.result as string
+        // console.log("ImageUrl",this.imageUrl)
+      };
+    }
+    }
+   
 
-  convertFileToUrl() {
-    const reader = new FileReader();
-    reader.readAsDataURL(this.selectedFile);
-    reader.onload = () => {
-      this.imageUrl = reader.result as string;
-    };
-  }
+  
  
 }

@@ -15,7 +15,9 @@ justify-content: center;
 width: 100%;
 font-family: "Poppins", sans-serif;
 }
-
+.imageurl{
+    width: 70vh;
+}
 .update-product{
     display: flex;
     background-color: #FECD45;

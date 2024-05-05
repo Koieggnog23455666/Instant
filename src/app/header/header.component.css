@@ -1,12 +1,17 @@
+body{
+    width: 100%;
+}
 .nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: auto;
+    width: 100%;
     background-color: #FECD45;
+    padding-top: 10px;
 }
 .nav h1{
     font-family: "Poppins", sans-serif;
+    
 }
 ul{
     display: flex;
@@ -53,6 +58,7 @@ li a{
 }
 .logo{
     color: #2568FB;
+    font-size: 30px;
 }
 
 .sellerItems{

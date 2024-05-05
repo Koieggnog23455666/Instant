@@ -24,4 +24,10 @@ return this.http.delete<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT
   updateProduct(product:Product){
     return this.http.put<Product>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+product.id,product)
   }
+  populateProduct(){
+    return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+`?_limit=5`)
+  }
+  trendyProduct(){
+    return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+`?_limit=8`)
+  }
 }

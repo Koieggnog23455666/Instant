@@ -16,7 +16,7 @@ return this.http.post(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT,data)
 return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT)
   }
   deleteProduct(id:string){
-return this.http.delete<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+id)
+return this.http.delete(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+id)
   }
   getProduct(id:string){
     return this.http.get<Product>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+id)
@@ -28,6 +28,9 @@ return this.http.delete<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT
     return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+`?_limit=5`)
   }
   trendyProduct(){
-    return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+`?_limit=8`)
+    return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS)
+  }
+  searchProduct(query:string){
+    return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT+`?name=${query}`)
   }
 }

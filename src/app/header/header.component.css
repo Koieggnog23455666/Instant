@@ -10,7 +10,9 @@ body{
     padding-top: 10px;
 }
 .nav h1{
-    font-family: "Poppins", sans-serif;
+    font-family: "Dancing Script", cursive;
+    font-weight: bolder;
+    font-size: larger;
     
 }
 ul{
@@ -71,4 +73,17 @@ li a{
 }
 li a:hover{
 color: #2568FB;
+}
+.suggested-result{
+    position: absolute;
+    display: list-item;
+    width: 300px;
+    z-index: 10;
+    top: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.suggested-result li{
+    border: 1px solid #ddd;
+    padding: 5px;
 }

@@ -14,10 +14,9 @@ export class SellerUpdateProductComponent implements OnInit{
   updatedMessage:string=''
   imageUrl:string=""
   getImage:string=""
+
+  constructor(private route:ActivatedRoute,private product:ProductService,private router:Router){}
   
-  constructor(private route:ActivatedRoute,private product:ProductService,private router:Router){
-    
-  }
 ngOnInit(): void {
   let productId=this.route.snapshot.paramMap.get('id')
 productId && this.product.getProduct(productId).subscribe((productData)=>{
@@ -26,22 +25,6 @@ productId && this.product.getProduct(productId).subscribe((productData)=>{
  
 })
 }
-
-// convertBase64(){
-//   // Convert base64 to file
-//   const base64String = this.getImage.split(',')[1];
-//   const byteCharacters = atob(base64String);
-//   const byteNumbers = new Array(byteCharacters.length);
-//   for (let i = 0; i < byteCharacters.length; i++) {
-//     byteNumbers[i] = byteCharacters.charCodeAt(i);
-//   }
-//   const byteArray = new Uint8Array(byteNumbers);
-//   const blob = new Blob([byteArray], { type: 'image/jpeg' });
-//   const newFile = new File([blob], 'filename.jpeg', { type: 'image/jpeg' });
-
-//   // Use newFile as needed
-//   console.log('New File:', newFile);
-// }
   submit(data:Product){
     if(this.productData){
       data.id=this.productData.id
@@ -54,7 +37,7 @@ productId && this.product.getProduct(productId).subscribe((productData)=>{
     })
     setTimeout(() => {
       this.updatedMessage=''
-this.router.navigate(['/seller-home'])
+this.router.navigate(['seller-home'])
     }, 3000);
   }
   onFileSelected(event: any) {

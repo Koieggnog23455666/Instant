@@ -3,28 +3,35 @@
         <ng-template ngbSlide *ngFor="let product of popularProduct" class="main">
             <div class="picsum-img-wrapper">
                 <img class="popular-product" src="{{product.image}}" alt="Random first slide" />
+                <div class="des">
+                    <span><h3>{{product.name|titlecase}}</h3></span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis magni provident quod dicta, maxime rem repellat! Eos necessitatibus quis deleniti maiores repellat. Delectus cumque quisquam nulla consequuntur accusantium autem? Incidunt nam qui atque praesentium? Aspernatur modi eos sapiente ratione esse necessitatibus facere perferendis vel maiores tempore dolorem expedita, nam ipsam, aliquam, deleniti distinctio. Natus dolore minus maxime architecto, cumque excepturi odio aliquam! Illum doloribus minima debitis fuga totam voluptates ipsam optio ex eveniet ut, ipsum maxime modi delectus asperiores vel. Non, reiciendis dignissimos sapiente sed provident officia aspernatur eligendi at. Provident quo maiores voluptate debitis magni odit soluta itaque.
+                    <div><h1>₹{{product.price}}</h1></div>
+                </div>
             </div>
-            <div class="carousel-caption">
+            <!-- <div class="carousel-caption">
                 <h3>{{product.name}}</h3>
-                
-            </div>
+            </div> -->
         </ng-template>
     </ngb-carousel>
     <div class="sub-main">
         <div class="sub-main2">
-            <div class="col-sm-3" *ngFor="let trendy of trendyProduct">
-                <div class="card col-sm-6"  style="width: 20rem; ">
-                    <img class="card-img-top pro-image" src="{{trendy.image}}" alt="Card image cap">
-                    <div class="card-body ">
-                      <h5 class="card-title">{{trendy.name}}</h5>
-                      <p class="card-text">{{trendy.description}}</p>
-                       <div class="button">
-                        <a href="#" class="btn btn-primary col-sm-4">View Detail</a>
-                        <a href="#" class="btn btn-primary col-sm-4">Add to Cart</a>
-                       </div>
-                    </div>
-                  </div>
-             </div>
+            <div class="row">
+                <div class="col-sm-3 my-2" *ngFor="let trendy of trendyProduct">
+                    <div class="card col-sm-6 mag "  style="width: 20rem; ">
+                        <img class="card-img-top pro-image" src="{{trendy.image}}" alt="Card image cap">
+                        <div class="card-body ">
+                          <h5 class="card-title">{{trendy.name}}</h5>
+                          <p class="card-text">{{trendy.description}}</p>
+                           <div class="button">
+                            <a  class="btn btn-primary col-sm-4 but">View Detail</a>
+                            <a  class="btn btn-primary col-sm-4 but" >Add to Cart</a>
+                           </div>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+        
            </div>
     </div>
    

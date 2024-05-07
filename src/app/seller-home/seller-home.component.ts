@@ -18,7 +18,6 @@ constructor(private product: ProductService ){}
     this.listing()
   }
   deleteProduct(data:string){
-    console.log(data)
     this.product.deleteProduct(data).subscribe((res)=>{
       if(res){
         this.productMessage="Product Deleted"

@@ -28,7 +28,7 @@ export class SellerAddProductsComponent implements OnInit {
         this.addedProduct = "Product Added Successfully"
       } setTimeout(() => {
         this.addedProduct = undefined
-        this.router.navigate(['/seller-home'])
+        this.router.navigate(['seller-home'])
       }, 3000);
     })
   }

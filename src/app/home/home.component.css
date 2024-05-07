@@ -16,7 +16,7 @@
     background-color: black;
 }
 .coro{
-    width: 80%;
+    padding-right: 8%;
 }
 .slide{
     width: 100%;
@@ -37,10 +37,32 @@ color: #2568FB;
 .active{
     color: #2568FB;
 }
+.but{
+    height: fit-content;
+    white-space: nowrap;
+    padding: 4px;
+}
+.des{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    padding-top: 2%;
+}
+.picsum-img-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1%;
+}
 .pro-image{
 height: 20vh;
     object-fit: contain;
+    background-color: #fff;
     padding-top: 10px;
+    transition: transform ease-in-out 0.3s;
+}
+.pro-image:hover{
+    transform: scale(1.10);
 }
 .button{
     display: flex;
@@ -51,6 +73,7 @@ height: 20vh;
     justify-content: space-around;
     margin-top: 20px;
     padding-left: 20px;
+    overflow: hidden;
     
 }
 .card-body a{
@@ -64,4 +87,10 @@ height: 20vh;
 .sub-main2{
     width: 100%;
     display: flex;
+    
+    object-fit: cover;
+}
+.mag{
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

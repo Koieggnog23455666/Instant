@@ -15,15 +15,7 @@ export class SellerService {
 
     loginError = new EventEmitter<boolean>(false)
     constructor(private http: HttpClient, private router: Router) { }
-    reloaderSeller() {
-        if (typeof this.localStorage !== 'undefined') {
-            if (localStorage.getItem('seller')) {
-                this.isUserLoggedIn.next(true)
-                this.router.navigate(['seller-home'])
-            }
-        }
 
-    }
 
     userSignUp(data: SignUp) {
         return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {
@@ -32,9 +24,20 @@ export class SellerService {
             this.router.navigate(['seller-home'])
         })
     }
+        
+    reloaderSeller() {
+        // if (typeof this.localStorage !== 'undefined') {
+            if (localStorage.getItem('seller')) {
+                this.isUserLoggedIn.next(true)
+                this.router.navigate(['seller-home'])
+                
+            // }
+        }
+
+    }
     userLogin(data: Login) {
         this.http.get(Constant.API_ENDPOINT + Constant.METHOD.SELLER + `?email=${data.email}&password=${data.password}`, { observe: 'response' }).subscribe((res: any) => {
-            console.log(res.body)
+            
             if (res && res.body && res.body.length) {
                 console.log('Login Successfully')
                 localStorage.setItem('seller', JSON.stringify(res.body))

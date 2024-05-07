@@ -1,0 +1,49 @@
+.picsum-img-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+.popular-product{
+    width: 100% ;
+}
+.product-image{
+    width: 35%;
+    border: .5px solid rgba(0, 0, 0, 0.115);
+}
+.product-image img{
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.des{
+    width: 60%;
+    padding-top: 3%;
+    height: 100%;
+}
+.detail{
+    margin-left: 4%;
+    margin-right: 4%;
+background-color: white;
+padding-top: 20px;
+}
+.sub-main{
+    background-color: aliceblue;
+    height: 100vh;
+}
+.product-color{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+.but{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.quatity-group input{
+    width: 50px;
+}

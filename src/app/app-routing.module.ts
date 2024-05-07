@@ -8,6 +8,7 @@ import { authGuard } from './auth.guard';
 import { SellerAddProductsComponent } from './seller-add-products/seller-add-products.component';
 import { SellerUpdateProductComponent } from './seller-update-product/seller-update-product.component';
 import { SearchComponent } from './search/search.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,11 @@ const routes: Routes = [
   ,{
     path:'search/:query',
     component:SearchComponent
-    }
+    },
+  {
+    path:'detail/:productId',
+    component:ProductDetailsComponent
+  }
 ];
 
 @NgModule({

@@ -87,3 +87,6 @@ color: #2568FB;
     border: 1px solid #ddd;
     padding: 5px;
 }
+.autoSearch{
+    cursor: pointer;
+}

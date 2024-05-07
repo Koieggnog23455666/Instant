@@ -1,14 +1,17 @@
 <div class="slide">
     <ngb-carousel *ngIf="popularProduct" class="coro">
         <ng-template ngbSlide *ngFor="let product of popularProduct" class="main">
-            <div class="picsum-img-wrapper">
-                <img class="popular-product" src="{{product.image}}" alt="Random first slide" />
-                <div class="des">
-                    <span><h3>{{product.name|titlecase}}</h3></span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis magni provident quod dicta, maxime rem repellat! Eos necessitatibus quis deleniti maiores repellat. Delectus cumque quisquam nulla consequuntur accusantium autem? Incidunt nam qui atque praesentium? Aspernatur modi eos sapiente ratione esse necessitatibus facere perferendis vel maiores tempore dolorem expedita, nam ipsam, aliquam, deleniti distinctio. Natus dolore minus maxime architecto, cumque excepturi odio aliquam! Illum doloribus minima debitis fuga totam voluptates ipsam optio ex eveniet ut, ipsum maxime modi delectus asperiores vel. Non, reiciendis dignissimos sapiente sed provident officia aspernatur eligendi at. Provident quo maiores voluptate debitis magni odit soluta itaque.
-                    <div><h1>₹{{product.price}}</h1></div>
-                </div>
-            </div>
+            <a routerLink="/detail/{{product.id}}">
+                <div class="picsum-img-wrapper">
+                    <img class="popular-product" src="{{product.image}}" alt="Random first slide" /> 
+                       <div class="des">
+                           <span><h3>{{product.name|titlecase}}</h3></span>
+                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis magni provident quod dicta, maxime rem repellat! Eos necessitatibus quis deleniti maiores repellat. Delectus cumque quisquam nulla consequuntur accusantium autem? Incidunt nam qui atque praesentium? Aspernatur modi eos sapiente ratione esse necessitatibus facere perferendis vel maiores tempore dolorem expedita, nam ipsam, aliquam, deleniti distinctio. Natus dolore minus maxime architecto, cumque excepturi odio aliquam! Illum doloribus minima debitis fuga totam voluptates ipsam optio ex eveniet ut, ipsum maxime modi delectus asperiores vel. Non, reiciendis dignissimos sapiente sed provident officia aspernatur eligendi at. Provident quo maiores voluptate debitis magni odit soluta itaque.
+                           <div><h1>₹{{product.price}}</h1></div>
+                       </div>
+                   </div>
+            </a>
+            
             <!-- <div class="carousel-caption">
                 <h3>{{product.name}}</h3>
             </div> -->
@@ -24,7 +27,7 @@
                           <h5 class="card-title">{{trendy.name}}</h5>
                           <p class="card-text">{{trendy.description}}</p>
                            <div class="button">
-                            <a  class="btn btn-primary col-sm-4 but">View Detail</a>
+                            <a routerLink="/detail/{{trendy.id}}" class="btn btn-primary col-sm-4 but">View Detail</a>
                             <a  class="btn btn-primary col-sm-4 but" >Add to Cart</a>
                            </div>
                         </div>

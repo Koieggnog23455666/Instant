@@ -1,0 +1,27 @@
+<div class="sub-main">
+    <div class="detail" *ngIf="productData">
+        <div class="picsum-img-wrapper">
+            <div class="product-image">
+                <img class="popular-product" src="{{productData.image}}" alt="Random first slide" />
+                <div class="but">
+                    <button class="btn btn-outline-primary">Buy Now</button>
+                    <button class="btn btn-outline-primary">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="des">
+                <span><h2>{{productData.name|titlecase}}</h2></span>
+             
+                <div><h1>₹{{productData.price}}</h1></div>
+                <div>Color <h5 [style.backgroundColor]="productData.color" class="product-color"></h5></div>
+                <div><h6>Category:{{productData.category}}</h6></div>
+                <div class="quatity-group">
+                    <button (click)="handleQuantity('min')">-</button>
+                    <input type="text" style="padding-left: 17px;" value="{{productQuantity}}">
+                    <button (click)="handleQuantity('plus')">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

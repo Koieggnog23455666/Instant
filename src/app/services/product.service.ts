@@ -33,4 +33,5 @@ return this.http.delete(Constant.API_ENDPOINT+Constant.METHOD.PRODUCTS+id)
   searchProduct(query:string){
     return this.http.get<Product[]>(Constant.API_ENDPOINT+Constant.METHOD.PRODUCT+`?name=${query}`)
   }
+  
 }

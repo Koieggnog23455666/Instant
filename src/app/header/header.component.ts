@@ -30,6 +30,8 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
       this.route.events.subscribe((val: any) => {
         if (val.url) {
+          console.log("val url",val.url)
+
           if(typeof localStorage!=='undefined'){
             if (localStorage.getItem('seller') && val.url.includes('seller')) {
               if(localStorage.getItem('seller')){
@@ -40,11 +42,13 @@ export class HeaderComponent implements OnInit {
                 this.menuType = 'seller'
               }
             }
-            else if(localStorage.getItem('users') ){
-              let user=localStorage.getItem('users')
-              let userData=user && JSON.parse(user)[0]
-              
+            else if(localStorage.getItem('users') && val.url.includes('/')){
+              let users=localStorage.getItem('users')
+              let userData=users && JSON.parse(users)[0]
+              console.log(userData)
               this.UserName=userData.username
+              
+              console.log("user data",this.UserName)
               this.menuType='user'
             }
             else {

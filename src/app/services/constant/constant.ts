@@ -5,6 +5,7 @@ export const Constant={
     METHOD:{
         SELLER:'seller',
         PRODUCT:'products',
-        PRODUCTS:'products/'
+        PRODUCTS:'products/',
+        USER:'users',
     }
 } 

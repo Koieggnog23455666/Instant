@@ -4,6 +4,7 @@ import { SellerService } from '../services/seller.service';
 import { BehaviorSubject } from 'rxjs';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interface';
+import { faCartPlus, faHome, faListCheck, faPeopleArrows, faPerson, faPlus, faRightFromBracket, faRightToBracket, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-header',
@@ -13,7 +14,18 @@ import { Product } from '../interface';
 export class HeaderComponent implements OnInit {
     menuType: string = 'default'
     sellerName:string=''
+    UserName:string=''
     searchResult:undefined|Product[]
+    searchIcon=faSearch
+    homeIcon=faHome
+    sellerIcon=faPerson
+    loginIcon=faRightFromBracket
+    logoutIcon=faRightToBracket
+    cartIcon=faCartPlus
+    listIcon=faListCheck
+    addIcon=faPlus
+    userIcon=faPerson
+    
     constructor(private route: Router,private productSrv:ProductService) { }
     ngOnInit(): void {
       this.route.events.subscribe((val: any) => {
@@ -27,6 +39,13 @@ export class HeaderComponent implements OnInit {
                 
                 this.menuType = 'seller'
               }
+            }
+            else if(localStorage.getItem('users') ){
+              let user=localStorage.getItem('users')
+              let userData=user && JSON.parse(user)[0]
+              
+              this.UserName=userData.username
+              this.menuType='user'
             }
             else {
               this.menuType = 'default'
@@ -43,6 +62,10 @@ export class HeaderComponent implements OnInit {
   
     logOut(){
       localStorage.removeItem('seller')
+      this.route.navigate(['/'])
+    }
+    userLogOut(){
+      localStorage.removeItem('users')
       this.route.navigate(['/'])
     }
     searchProduct(query:KeyboardEvent){

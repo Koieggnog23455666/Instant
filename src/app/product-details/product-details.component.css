@@ -1,6 +1,7 @@
 .picsum-img-wrapper{
     display: flex;
     justify-content: space-around;
+    
 }
 .popular-product{
     width: 100% ;
@@ -27,6 +28,7 @@
     margin-right: 4%;
 background-color: white;
 padding-top: 20px;
+height: 100%;
 }
 .sub-main{
     background-color: aliceblue;

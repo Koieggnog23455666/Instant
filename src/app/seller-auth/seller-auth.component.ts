@@ -19,12 +19,12 @@ export class SellingAuthComponent implements OnInit {
   }
   
   signup(data: SignUp): void {
-    this.sellerSrv.userSignUp(data);
+    this.sellerSrv.sellerSignUp(data);
   }
   
   Login(data: Login) {
     this.authError =''
-    this.sellerSrv.userLogin(data);
+    this.sellerSrv.sellerLogin(data);
     this.sellerSrv.loginError.subscribe((isError) => {
       if (isError) {
         this.authError = 'Email and Password is not correct';

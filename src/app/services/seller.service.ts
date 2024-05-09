@@ -10,6 +10,9 @@ import { EventEmitter, Injectable } from '@angular/core'
     providedIn: 'root'
 })
 export class SellerService {
+    userLogin(data: Login) {
+      throw new Error('Method not implemented.');
+    }
     isUserLoggedIn = new BehaviorSubject<boolean>(false)
     localStorage: Storage | undefined;
 
@@ -17,7 +20,7 @@ export class SellerService {
     constructor(private http: HttpClient, private router: Router) { }
 
 
-    userSignUp(data: SignUp) {
+    sellerSignUp(data: SignUp) {
         return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {
             this.isUserLoggedIn.next(true)
             localStorage.setItem('seller', JSON.stringify(res.body))
@@ -35,7 +38,7 @@ export class SellerService {
         }
 
     }
-    userLogin(data: Login) {
+    sellerLogin(data: Login) {
         this.http.get(Constant.API_ENDPOINT + Constant.METHOD.SELLER + `?email=${data.email}&password=${data.password}`, { observe: 'response' }).subscribe((res: any) => {
             
             if (res && res.body && res.body.length) {
@@ -46,6 +49,13 @@ export class SellerService {
             else {
                 this.loginError.emit(true)
             }
+        })
+    }
+    userSignUp(data: SignUp) {
+        return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {
+            this.isUserLoggedIn.next(true)
+            localStorage.setItem('seller', JSON.stringify(res.body))
+            this.router.navigate(['seller-home'])
         })
     }
 }

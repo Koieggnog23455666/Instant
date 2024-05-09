@@ -1,0 +1,28 @@
+
+.sign-up,.login{
+    
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FECD45;
+    color: #2568FB;
+    height: 40vh;
+}
+.form-input:hover{
+    transform: scale(1.009);
+    border: 1px solid #2568FB;
+}
+.button:hover{
+    transform: scale(1.009);
+}
+.below{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.below span{
+    color: black;
+}
+

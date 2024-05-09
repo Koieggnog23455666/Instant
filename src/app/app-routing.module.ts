@@ -9,6 +9,7 @@ import { SellerAddProductsComponent } from './seller-add-products/seller-add-pro
 import { SellerUpdateProductComponent } from './seller-update-product/seller-update-product.component';
 import { SearchComponent } from './search/search.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { UserAuthComponent } from './user-auth/user-auth.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path:'detail/:productId',
     component:ProductDetailsComponent
+  },
+  {
+    path:'user-auth',
+    component:UserAuthComponent
   }
 ];
 

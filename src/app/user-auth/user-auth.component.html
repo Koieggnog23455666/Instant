@@ -1,0 +1,44 @@
+<!-- Sign Up Area -->
+<div class="common_form">
+    <div *ngIf="!showLogin " class="sign-up">
+        <h1 class="head">User SignUp</h1>
+        <form class="formes" #userSignup="ngForm" (ngSubmit)="signup(userSignup.value)">
+            <input type="text" class="form-input" ngModel name="username" placeholder="Enter Username" #name="ngModel" required ngModel>
+            <span *ngIf="name.invalid && name.touched" style="color:red;">Name is required</span>
+            <input type="text" class="form-input" ngModel name="email" placeholder="Email address" #email="ngModel" required ngModel>
+            <span *ngIf="email.invalid && email.touched" style="color:red;">Email is required</span>
+            <input type="password" class="form-input" ngModel name="password" placeholder="Password" #password="ngModel"minlength="6" required ngModel>
+            <span *ngIf="password.invalid && password.touched" style="color:red;">
+
+                <span *ngIf="password.errors?.['required']" style="color:red;">Password is required</span>
+                <span *ngIf="password.errors?.['minlength']" style="color:red;">Minimum 6 character is required</span>
+            </span>
+          
+          <div class="below">
+            <div><span>Already a Member? </span><a (click)="openLogin()"> Login</a></div>
+            <button class="button" [disabled]="userSignup.invalid">Sign Up</button>
+          </div>
+        </form>
+    </div>
+
+    <!-- Login Area -->
+    <div *ngIf="showLogin " class="login">
+        <h1 class="head">User Login</h1>
+        <p style="color: red;">{{authError}}</p>
+        <form class="formes" #userLogin="ngForm" (ngSubmit)="Login(userLogin.value)">
+            <input type="text" class="form-input" ngModel name="email" placeholder="Email address" #email="ngModel" required>
+            <span *ngIf="email.invalid && email.touched" style="color:red;">Email is required</span>
+            <input type="password" class="form-input" ngModel name="password" placeholder="Password" #password="ngModel" minlength="6" required>
+            <span *ngIf="password.invalid && password.touched" style="color:red;">
+
+                <span *ngIf="password.errors?.['required']" style="color:red;">Password is required</span>
+                <span *ngIf="password.errors?.['minlength']" style="color:red;">Minimum 6 character is required</span>
+            </span>
+          <div class="below">
+            <div><span>Not a Member? </span><a (click)="openSignUp()" > Sign Up</a></div>
+            <button class="button" [disabled]="userLogin.invalid">Login</button>
+          </div>
+        </form>
+    </div>
+   
+</div>

@@ -1,9 +1,18 @@
 body{
     width: 100%;
 }
+.headSection{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    width: 90%;
+}
+.liIcon{
+    width: 100%;
+}
 .nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     background-color: #FECD45;
@@ -25,9 +34,9 @@ ul{
 
 .nav-search{
     display: flex;
-    width: 30%;
+    width: 80%;
     margin-left: 5%;
-    margin-right: 5%;
+    
 }
 
 .nav-search input{
@@ -89,4 +98,10 @@ color: #2568FB;
 }
 .autoSearch{
     cursor: pointer;
+}
+.items{
+    width: 80%;
+}
+.items fa-icon{
+    padding-right: 6px;
 }

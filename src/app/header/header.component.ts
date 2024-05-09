@@ -26,7 +26,11 @@ export class HeaderComponent implements OnInit {
     addIcon=faPlus
     userIcon=faPerson
     
+<<<<<<< HEAD
     constructor(private route: Router,private productSrv:ProductService,private seller:SellerService) { }
+=======
+    constructor(private route: Router,private productSrv:ProductService) { }
+>>>>>>> 0687286f9bb971489f5e8b9802cb1f276e2d2969
     ngOnInit(): void {
       this.route.events.subscribe((val: any) => {
         if (val.url) {
@@ -40,10 +44,17 @@ export class HeaderComponent implements OnInit {
                 this.sellerName=sellerData.username;
               }
             }
+<<<<<<< HEAD
             else if(localStorage.getItem('users') && val.url.includes('/')){
               let users=localStorage.getItem('users')
               let userData= JSON.parse(users||'')
               console.log(userData)
+=======
+            else if(localStorage.getItem('users') ){
+              let user=localStorage.getItem('users')
+              let userData=user && JSON.parse(user)[0]
+              
+>>>>>>> 0687286f9bb971489f5e8b9802cb1f276e2d2969
               this.UserName=userData.username
               this.menuType='user'
             }

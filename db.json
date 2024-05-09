@@ -186,48 +186,6 @@
       "username": "",
       "email": "",
       "password": "123456"
-    },
-    {
-      "id": "01e5",
-      "username": "tina",
-      "email": "tina@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "2c28",
-      "username": "user",
-      "email": "user@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "acd4",
-      "username": "user krishna",
-      "email": "user@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "8387",
-      "username": "user kr",
-      "email": "user@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "8edf",
-      "username": "user@gmail.com",
-      "email": "fifa@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "dac9",
-      "username": "joe",
-      "email": "joe@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "0eb5",
-      "username": "user kris",
-      "email": "user@gmail.com",
-      "password": "123456"
     }
   ]
 }

@@ -22,9 +22,10 @@ ngOnInit(): void {
 productId && this.product.getProduct(productId).subscribe((productData)=>{
  this.productData =productData
  this.getImage=productData.image
- 
+ console.log("image",this.getImage)
 })
 }
+
   submit(data:Product){
     if(this.productData){
       data.id=this.productData.id
@@ -42,16 +43,30 @@ this.router.navigate(['seller-home'])
   }
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
+    const base64String:string=''
     if(file){
       const reader:FileReader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.imageUrl = reader.result as string
-        console.log("ImageUrl",this.imageUrl)
-          
+        // console.log("ImageUrl",this.imageUrl)
+        // Convert the base64 string to a Blob
+const byteCharacters = atob(this.getImage);
+const byteNumbers = new Array(byteCharacters.length);
+for (let i = 0; i < byteCharacters.length; i++) {
+  byteNumbers[i] = byteCharacters.charCodeAt(i);
+}
+const byteArray = new Uint8Array(byteNumbers);
+const blob = new Blob([byteArray], { type: 'image/jpeg' });
+
+// Create a URL for the Blob object
+const urlCreator = window.URL || window.webkitURL;
+const imageUrl = urlCreator.createObjectURL(blob);
+          console.log(imageUrl)
       };
     }
     // this.convertBase64()
     }
-   
+
+
 }

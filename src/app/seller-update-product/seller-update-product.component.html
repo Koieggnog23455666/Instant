@@ -15,6 +15,7 @@
         <input type="text" placeholder="Enter Product Category" name="category" #category="ngModel" required ngModel="{{productData?.category}}">
         <span *ngIf="description.invalid && description.touched" style="color:red;">Description is required</span>
         <input type="text" placeholder="Enter Product Description" name="description" #description="ngModel" required ngModel="{{productData?.description}}">
+        <img [src]="getImage" style="max-width: 100px;">
         <input type="file" class="imageurl" (change)="onFileSelected($event)"  placeholder="Enter Product Image URl" name="image" >
         <!-- <button  (click)="convertFileToUrl()">Upload</button> -->
         <button >Update</button>

@@ -26,29 +26,25 @@ export class HeaderComponent implements OnInit {
     addIcon=faPlus
     userIcon=faPerson
     
-    constructor(private route: Router,private productSrv:ProductService) { }
+    constructor(private route: Router,private productSrv:ProductService,private seller:SellerService) { }
     ngOnInit(): void {
       this.route.events.subscribe((val: any) => {
         if (val.url) {
-          console.log("val url",val.url)
-
           if(typeof localStorage!=='undefined'){
-            if (localStorage.getItem('seller') && val.url.includes('seller')) {
+            if (localStorage.getItem('seller') && val.url.includes('seller')){
+              this.menuType = 'seller'
               if(localStorage.getItem('seller')){
                 let seller=localStorage.getItem('seller')
-                let sellerData=seller && JSON.parse(seller)[0];
+                let sellerData=seller && JSON.parse(seller)
+                console.log(sellerData.username)
                 this.sellerName=sellerData.username;
-                
-                this.menuType = 'seller'
               }
             }
             else if(localStorage.getItem('users') && val.url.includes('/')){
               let users=localStorage.getItem('users')
-              let userData=users && JSON.parse(users)[0]
+              let userData= JSON.parse(users||'')
               console.log(userData)
               this.UserName=userData.username
-              
-              console.log("user data",this.UserName)
               this.menuType='user'
             }
             else {
@@ -57,6 +53,7 @@ export class HeaderComponent implements OnInit {
           }
         }
       })
+      this.seller.getSeller()
     }
     submit(val:string){
        // console.warn(val);

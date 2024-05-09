@@ -18,7 +18,13 @@ export class SellerService {
 
     loginError = new EventEmitter<boolean>(false)
     constructor(private http: HttpClient, private router: Router) { }
-
+getSeller(){
+    return this.http.get(Constant.API_ENDPOINT+Constant.METHOD.SELLER).subscribe((res)=>{
+        if(res){
+            console.log("seller sevice", res)
+        }
+    })
+}
 
     sellerSignUp(data: SignUp) {
         return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {

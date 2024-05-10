@@ -49,24 +49,11 @@ this.router.navigate(['seller-home'])
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.imageUrl = reader.result as string
+        this.getImage=reader.result as string
         // console.log("ImageUrl",this.imageUrl)
         // Convert the base64 string to a Blob
-const byteCharacters = atob(this.getImage);
-const byteNumbers = new Array(byteCharacters.length);
-for (let i = 0; i < byteCharacters.length; i++) {
-  byteNumbers[i] = byteCharacters.charCodeAt(i);
-}
-const byteArray = new Uint8Array(byteNumbers);
-const blob = new Blob([byteArray], { type: 'image/jpeg' });
-
-// Create a URL for the Blob object
-const urlCreator = window.URL || window.webkitURL;
-const imageUrl = urlCreator.createObjectURL(blob);
-          console.log(imageUrl)
-      };
-    }
-    // this.convertBase64()
-    }
 
 
-}
+      }}
+
+}}

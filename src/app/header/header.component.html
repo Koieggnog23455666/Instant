@@ -28,7 +28,7 @@
         <li class="sellerSel"><a routerLink="/"> <fa-icon [icon]="homeIcon"></fa-icon>Home</a></li>
         <li class="sellerSel"><a routerLink="seller-auth"><fa-icon [icon]="sellerIcon"></fa-icon>Seller</a></li>
         <li class="sellerSel"><a (click)="userLogOut()" ><fa-icon [icon]="logoutIcon"></fa-icon>Log out</a></li>
-        <li class="sellerSel"><a ><fa-icon [icon]="cartIcon"></fa-icon>Cart(0)</a></li>
+        <li class="sellerSel"><a ><fa-icon [icon]="cartIcon"></fa-icon>Cart({{cartItem}})</a></li>
         <li class="sellerSel"><a ><fa-icon [icon]="userIcon"></fa-icon>{{UserName|titlecase}}</a></li>
     </ul>
   </div>

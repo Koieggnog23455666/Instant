@@ -15,5 +15,6 @@ export interface Product{
     color:string,
     image:string,
     description:string,
-    id:string
+    id:string,
+    quantity:undefined|number
 }

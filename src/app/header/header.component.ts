@@ -25,37 +25,26 @@ export class HeaderComponent implements OnInit {
     listIcon=faListCheck
     addIcon=faPlus
     userIcon=faPerson
-    
-<<<<<<< HEAD
+    cartItem:number=0
     constructor(private route: Router,private productSrv:ProductService,private seller:SellerService) { }
-=======
-    constructor(private route: Router,private productSrv:ProductService) { }
->>>>>>> 0687286f9bb971489f5e8b9802cb1f276e2d2969
     ngOnInit(): void {
       this.route.events.subscribe((val: any) => {
         if (val.url) {
           if(typeof localStorage!=='undefined'){
+            
             if (localStorage.getItem('seller') && val.url.includes('seller')){
               this.menuType = 'seller'
               if(localStorage.getItem('seller')){
                 let seller=localStorage.getItem('seller')
                 let sellerData=seller && JSON.parse(seller)
-                console.log(sellerData.username)
-                this.sellerName=sellerData.username;
+                this.sellerName=sellerData[0].username;
+                console.log("seller",this.sellerName)
               }
             }
-<<<<<<< HEAD
             else if(localStorage.getItem('users') && val.url.includes('/')){
               let users=localStorage.getItem('users')
               let userData= JSON.parse(users||'')
-              console.log(userData)
-=======
-            else if(localStorage.getItem('users') ){
-              let user=localStorage.getItem('users')
-              let userData=user && JSON.parse(user)[0]
-              
->>>>>>> 0687286f9bb971489f5e8b9802cb1f276e2d2969
-              this.UserName=userData.username
+              this.UserName=userData[0].username
               this.menuType='user'
             }
             else {
@@ -64,7 +53,13 @@ export class HeaderComponent implements OnInit {
           }
         }
       })
-      this.seller.getSeller()
+      let cartData=localStorage.getItem('localCart')
+      if(cartData){
+        this.cartItem=JSON.parse(cartData).length
+      }
+      this.productSrv.cartData.subscribe((item)=>{
+        this.cartItem=item.length
+      })
     }
     submit(val:string){
        // console.warn(val);

@@ -16,7 +16,7 @@
          <fa-icon [icon]="homeIcon"></fa-icon> Home</a></li>
         <li class="liIcon"><a routerLink="seller-auth"> <fa-icon [icon]="sellerIcon"></fa-icon> Seller</a></li>
         <li class="liIcon"><a routerLink="user-auth"> <fa-icon [icon]="loginIcon"></fa-icon>Login</a></li>
-        <li class="liIcon"><a > <fa-icon [icon]="cartIcon"></fa-icon>Cart</a></li>
+        <li class="liIcon"><a > <fa-icon [icon]="cartIcon"></fa-icon>Cart({{cartItem}})</a></li>
     </ul>
     <ul *ngSwitchCase="'seller'" class="sellerItems" >
         <li class="sellerSel"><a routerLink="seller-home"><fa-icon [icon]="listIcon"></fa-icon>Product list</a></li>
@@ -28,7 +28,7 @@
         <li class="sellerSel"><a routerLink="/"> <fa-icon [icon]="homeIcon"></fa-icon>Home</a></li>
         <li class="sellerSel"><a routerLink="seller-auth"><fa-icon [icon]="sellerIcon"></fa-icon>Seller</a></li>
         <li class="sellerSel"><a (click)="userLogOut()" ><fa-icon [icon]="logoutIcon"></fa-icon>Log out</a></li>
-        <li class="sellerSel"><a ><fa-icon [icon]="cartIcon"></fa-icon>Cart({{cartItem}})</a></li>
+        <li class="sellerSel"><a routerLink="cart-page" ><fa-icon [icon]="cartIcon"></fa-icon>Cart({{cartItem}})</a></li>
         <li class="sellerSel"><a ><fa-icon [icon]="userIcon"></fa-icon>{{UserName|titlecase}}</a></li>
     </ul>
   </div>

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SellerService } from '../services/seller.service';
 import { BehaviorSubject } from 'rxjs';
 import { ProductService } from '../services/product.service';
-import { Product } from '../interface';
+import { Cart, Product } from '../interface';
 import { faCartPlus, faHome, faListCheck, faPeopleArrows, faPerson, faPlus, faRightFromBracket, faRightToBracket, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
     sellerIcon=faPerson
     loginIcon=faRightFromBracket
     logoutIcon=faRightToBracket
+    
     cartIcon=faCartPlus
     listIcon=faListCheck
     addIcon=faPlus
@@ -31,7 +32,6 @@ export class HeaderComponent implements OnInit {
       this.route.events.subscribe((val: any) => {
         if (val.url) {
           if(typeof localStorage!=='undefined'){
-            
             if (localStorage.getItem('seller') && val.url.includes('seller')){
               this.menuType = 'seller'
               if(localStorage.getItem('seller')){
@@ -41,13 +41,15 @@ export class HeaderComponent implements OnInit {
                 console.log("seller",this.sellerName)
               }
             }
-            else if(localStorage.getItem('users') && val.url.includes('/')){
+            else if(localStorage.getItem('users') ){
               let users=localStorage.getItem('users')
               let userData= JSON.parse(users||'')
               this.UserName=userData[0].username
+              this.productSrv.getCartList(userData.id)
               this.menuType='user'
             }
             else {
+              
               this.menuType = 'default'
             }
           }
@@ -60,6 +62,7 @@ export class HeaderComponent implements OnInit {
       this.productSrv.cartData.subscribe((item)=>{
         this.cartItem=item.length
       })
+      
     }
     submit(val:string){
        // console.warn(val);
@@ -95,4 +98,5 @@ export class HeaderComponent implements OnInit {
     redirectToDetail(id:string){
       this.route.navigate(['/detail/'+id])
     }
+    
   }

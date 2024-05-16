@@ -7,18 +7,35 @@
         <p>{{addedProduct}}</p>
         <span *ngIf="name.invalid && name.touched" style="color:red;">Name is required</span>
         <input type="text" placeholder="Enter Product Name" name="name" #name="ngModel" required ngModel>
-        <span *ngIf="price.invalid && price.touched" style="color:red;">Price is required</span>
-        <input type="text" placeholder="Enter Product Price" name="price" #price="ngModel" required ngModel>
+            <div *ngIf="price?.invalid && (price?.dirty || price?.touched)">
+                <span *ngIf="price?.errors?.['pattern']" style="color:red;">Only numbers are allowed.</span>
+                <span *ngIf="price?.errors?.['required']" style="color:red;">Price is required
+                </span></div>
+        <input type="text" placeholder="Enter Product Price" name="price" #price="ngModel"  pattern="[0-9]*" required ngModel>
         <span *ngIf="color.invalid && color.touched" style="color:red;">Color is required</span>
-        <input type="text" placeholder="Enter Product Color" name="color" #color="ngModel" required ngModel>
+        <div *ngIf="color?.invalid && (color?.dirty || color?.touched)">
+            <span *ngIf="color?.errors?.['pattern']"style="color:red;">Only character</span>
+          </div>
+        <input type="text" placeholder="Enter Product Color" name="color" #color="ngModel" pattern="[a-zA-Z]*" required ngModel>
         <span *ngIf="category.invalid && category.touched" style="color:red;">Category is required</span>
-        <input type="text" placeholder="Enter Product Category" name="category" #category="ngModel" required ngModel>
+        <div *ngIf="category?.invalid && (category?.dirty || category?.touched)">
+            <span *ngIf="category?.errors?.['pattern']"style="color:red;">Only character</span>
+          </div>
+        <input type="text" placeholder="Enter Product Category" name="category" #category="ngModel" pattern="[a-zA-Z]*" required ngModel>
         <span *ngIf="description.invalid && description.touched" style="color:red;">Description is required</span>
-        <input type="text" placeholder="Enter Product Description" name="description" #description="ngModel" required ngModel>
-        <input type="file" (change)="onFileSelected($event)" placeholder="Enter Product Image URl" name="image"  ngModel>
+        <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+            <span *ngIf="description?.errors?.['pattern']"style="color:red;">Only character</span>
+          </div>
+        <input type="text" placeholder="Enter Product Description" name="description" #description="ngModel" pattern="[a-zA-Z]*" required ngModel>
+        <label style="cursor: pointer;" for="Upload">
+           
+            <img [src]="imageUrl?imageUrl:'../../assets/add image icon.png'"   style="max-width: 100px; margin-bottom: 30px;"></label>
+       
+        <input type="file" id="Upload" class="d-none" (change)="onFileSelected($event)"  placeholder="Enter Product Image URl" name="image" >
+        <!-- <input type="file" (change)="onFileSelected($event)" placeholder="Enter Product Image URl" name="image"  ngModel> -->
         <!-- <input type="text" [(ngModel)]="imageUrl"> -->
         
         <!-- <button  (click)="convertFileToUrl()">Upload</button> -->
-        <button >Add</button>
+        <button [disabled]="addProduct.invalid" style="margin-top: 30x;">Add</button>
     </form>
 </div></div>

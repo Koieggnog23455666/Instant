@@ -3,6 +3,9 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../interface';
 import { subscribe } from 'diagnostics_channel';
 import { Router } from '@angular/router';
+import { faImage, faPercent } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-seller-add-products',
@@ -12,8 +15,11 @@ import { Router } from '@angular/router';
 export class SellerAddProductsComponent implements OnInit {
   productList: Product[] | undefined
   addedProduct: string | undefined
-  imageUrl: string =''
-  selectedFile!: File; 
+  imageUrl: string|undefined
+  getImage:undefined|string
+  selectedFile!: File
+  galleryIcon=faImage
+  
   constructor(private product: ProductService,private router:Router) { }
   ngOnInit(): void {
     this.product.showProduct().subscribe((res) => {
@@ -22,7 +28,7 @@ export class SellerAddProductsComponent implements OnInit {
   }
   submit(data: Product) {
     console.log("Data",{...data,image:this.imageUrl})
-    this.product.addProduct({...data,image:this.imageUrl}).subscribe((res) => {
+    this.product.addProduct({...data,image:this.imageUrl?this.imageUrl:""}).subscribe((res) => {
       console.log(res)
       if (res) {
         this.addedProduct = "Product Added Successfully"
@@ -39,6 +45,7 @@ export class SellerAddProductsComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.imageUrl = reader.result as string
+        
         // console.log("ImageUrl",this.imageUrl)
       };
     }

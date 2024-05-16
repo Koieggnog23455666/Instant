@@ -56,3 +56,7 @@ button{
     font-weight: bold;
     cursor: pointer;
 }
+.icon{
+    margin-bottom: 20px !important;
+    width: 100px;
+}

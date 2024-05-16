@@ -15,7 +15,7 @@ export class UserService {
   userSignUp(data: SignUp) {
     return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.USER, data, { observe: 'response' }).subscribe((res) => {
         this.isUserLoggedIn.next(true)
-        localStorage.setItem('users', JSON.stringify(res.body))
+        localStorage.setItem('users', JSON.stringify([res.body]))
         this.router.navigate(['/'])
     })
 }

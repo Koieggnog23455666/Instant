@@ -17,6 +17,10 @@ import { SearchComponent } from './search/search.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
+import { DeleteDialogComponent } from './seller-home/delete-dialog/delete-dialog.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { UserAuthComponent } from './user-auth/user-auth.component';
     SearchComponent,
     ProductDetailsComponent,
     FooterComponent,
-    UserAuthComponent
+    UserAuthComponent,
+    DeleteDialogComponent,
+    CartPageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,7 @@ import { UserAuthComponent } from './user-auth/user-auth.component';
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,MatDialogModule
   ],
   providers: [
     provideClientHydration()

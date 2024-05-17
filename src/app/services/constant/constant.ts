@@ -8,5 +8,6 @@ export const Constant={
         PRODUCTS:'products/',
         USER:'users',
         CART:"cart",
+        CARTS:"cart/",
     }
 } 

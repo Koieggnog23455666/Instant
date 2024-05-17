@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
-import { Cart, Product } from '../interface';
+import { Cart, Product, order } from '../interface';
 import { Constant } from './constant/constant';
 
 
@@ -18,6 +18,9 @@ export class ProductService {
   }
   deleteProduct(id: string) {
     return this.http.delete(Constant.API_ENDPOINT + Constant.METHOD.PRODUCTS + id)
+  }
+  deleteProductFromCart(id: string) {
+    return this.http.delete(Constant.API_ENDPOINT + Constant.METHOD.CARTS + id)
   }
   getProduct(id: string) {
     return this.http.get<Product>(Constant.API_ENDPOINT + Constant.METHOD.PRODUCTS + id)
@@ -73,7 +76,9 @@ export class ProductService {
   currentCartDetail() {
     let users = localStorage.getItem('users')
     let userData = users && JSON.parse(users)[0]
-    console.log(userData.id)
     return this.http.get<Cart[]>('http://localhost:3000/cart?userId=' + userData.id)
+  }
+  order(data:order){
+    return this.http.post('http://localhost:3000/order/' , data)
   }
 }

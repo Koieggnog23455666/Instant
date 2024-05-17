@@ -20,6 +20,10 @@ import { UserAuthComponent } from './user-auth/user-auth.component';
 import { DeleteDialogComponent } from './seller-home/delete-dialog/delete-dialog.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderComponent } from './order/order.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -38,14 +42,22 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     DeleteDialogComponent,
     CartPageComponent,
     
+    CheckoutComponent,
+          OrderComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    NgbModule,MatDialogModule
+    NgbModule,MatDialogModule,ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     provideClientHydration()

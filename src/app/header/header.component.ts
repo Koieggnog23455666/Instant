@@ -38,29 +38,31 @@ export class HeaderComponent implements OnInit {
                 let seller=localStorage.getItem('seller')
                 let sellerData=seller && JSON.parse(seller)
                 this.sellerName=sellerData[0].username;
-                console.log("seller",this.sellerName)
+                
               }
             }
             else if(localStorage.getItem('users') ){
               let users=localStorage.getItem('users')
               let userData= JSON.parse(users||'')
               this.UserName=userData[0].username
-              this.productSrv.getCartList(userData.id)
+              this.productSrv.currentCartDetail()
               this.menuType='user'
             }
             else {
-              
               this.menuType = 'default'
+              
             }
           }
         }
       })
-      let cartData=localStorage.getItem('localCart')
-      if(cartData){
-        this.cartItem=JSON.parse(cartData).length
-      }
+      
+      // let cartData=localStorage.getItem('localCart')
+      // if(cartData){
+      //   this.cartItem=JSON.parse(cartData).length
+      // }
       this.productSrv.cartData.subscribe((item)=>{
         this.cartItem=item.length
+        
       })
       
     }
@@ -73,6 +75,8 @@ export class HeaderComponent implements OnInit {
     logOut(){
       localStorage.removeItem('seller')
       this.route.navigate(['/'])
+      
+
     }
     userLogOut(){
       localStorage.removeItem('users')
@@ -87,7 +91,7 @@ export class HeaderComponent implements OnInit {
             res.length=length
           }
           this.searchResult=res
-          console.log("Result",res)
+          
         })
       }
       

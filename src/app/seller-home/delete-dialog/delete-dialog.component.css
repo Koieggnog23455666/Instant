@@ -1,0 +1,28 @@
+mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  mat-dialog-content img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .mdc-dialog__content>:first-child {
+    margin-top: 0;
+    font-size: 25px;
+    color: blueviolet;
+}
+button{
+    border: 1px solid blueviolet;
+    
+    /* color: blueviolet; */
+}

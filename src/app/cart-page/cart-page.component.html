@@ -9,7 +9,7 @@
                   <div class="p-5">
                     <div class="d-flex justify-content-between align-items-center mb-5">
                       <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                      <h6 class="mb-0 text-muted">3 items</h6>
+                      <h6 class="mb-0 text-muted">{{cartItem}} items</h6>
                     </div>
                     <hr class="my-4">
   
@@ -41,8 +41,8 @@
                         <h6 class="mb-0"> {{cart.price}}</h6>
                       </div>
                   
-                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <fa-icon [icon]="deleteIcon"></fa-icon>
+                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1" (click)="deleteProduct(cart.id)">
+                        <fa-icon class="trash" [icon]="deleteIcon"></fa-icon>
                       </div>
                     </div>
   
@@ -61,7 +61,7 @@
                     <hr class="my-4">
   
                     <div class="d-flex justify-content-between mb-4">
-                      <h5 class="text-uppercase">items 3</h5>
+                      <h5 class="text-uppercase">items {{cartItem}}</h5>
                       <h5>{{cartSummary.price}}</h5>
                     </div>
                     <div class="d-flex justify-content-between mb-4">
@@ -96,7 +96,7 @@
                     </div>
   
                     <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
-                      data-mdb-ripple-color="dark">Register</button>
+                      data-mdb-ripple-color="dark" (click)="checkout()">Register</button>
   
                   </div>
                 </div>

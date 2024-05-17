@@ -6,6 +6,7 @@ import { Constant } from './constant/constant';
 import { Login, SignUp } from '../interface';
 import { allowedNodeEnvironmentFlags } from 'process';
 import { EventEmitter, Injectable } from '@angular/core'
+import { ToastrService } from 'ngx-toastr';
 @Injectable({
     providedIn: 'root'
 })
@@ -17,7 +18,7 @@ export class SellerService {
     localStorage: Storage | undefined;
 
     loginError = new EventEmitter<boolean>(false)
-    constructor(private http: HttpClient, private router: Router) { }
+    constructor(private http: HttpClient, private router: Router,private toaster:ToastrService) { }
 // getSeller(){
 //     return this.http.get(Constant.API_ENDPOINT+Constant.METHOD.SELLER).subscribe((res)=>{
 //         if(res){
@@ -28,6 +29,9 @@ export class SellerService {
 
     sellerSignUp(data: SignUp) {
         return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {
+            if(res){
+                this.toaster.success("User LogIn")
+            }
             this.isUserLoggedIn.next(true)
             localStorage.setItem('seller', JSON.stringify(res.body))
             this.router.navigate(['seller-home'])
@@ -48,7 +52,7 @@ export class SellerService {
         this.http.get(Constant.API_ENDPOINT + Constant.METHOD.SELLER + `?email=${data.email}&password=${data.password}`, { observe: 'response' }).subscribe((res: any) => {
             
             if (res && res.body && res.body.length) {
-                console.log('Login Successfully')
+                this.toaster.success("Seller LogIn")
                 localStorage.setItem('seller', JSON.stringify(res.body))
                 this.router.navigate(['seller-home']);
             }
@@ -59,6 +63,9 @@ export class SellerService {
     }
     userSignUp(data: SignUp) {
         return this.http.post(Constant.API_ENDPOINT + Constant.METHOD.SELLER, data, { observe: 'response' }).subscribe((res) => {
+            if(res){
+                this.toaster.success("User LogIn")
+            }
             this.isUserLoggedIn.next(true)
             localStorage.setItem('seller', JSON.stringify(res.body))
             this.router.navigate(['seller-home'])

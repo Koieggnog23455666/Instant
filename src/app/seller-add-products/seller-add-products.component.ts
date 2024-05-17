@@ -4,6 +4,7 @@ import { Product } from '../interface';
 import { subscribe } from 'diagnostics_channel';
 import { Router } from '@angular/router';
 import { faImage, faPercent } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -20,22 +21,19 @@ export class SellerAddProductsComponent implements OnInit {
   selectedFile!: File
   galleryIcon=faImage
   
-  constructor(private product: ProductService,private router:Router) { }
+  constructor(private product: ProductService,private router:Router,private toaster:ToastrService) { }
   ngOnInit(): void {
     this.product.showProduct().subscribe((res) => {
       this.productList = res
     })
   }
   submit(data: Product) {
-    console.log("Data",{...data,image:this.imageUrl})
+    
     this.product.addProduct({...data,image:this.imageUrl?this.imageUrl:""}).subscribe((res) => {
-      console.log(res)
-      if (res) {
-        this.addedProduct = "Product Added Successfully"
-      } setTimeout(() => {
-        this.addedProduct = undefined
+      setTimeout(() => {
+        this.toaster.success("Product is added")
         this.router.navigate(['seller-home'])
-      }, 3000);
+      }, 2000);
     })
   }
   onFileSelected(event: any) {

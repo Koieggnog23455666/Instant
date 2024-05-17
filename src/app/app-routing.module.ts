@@ -11,6 +11,8 @@ import { SearchComponent } from './search/search.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {
@@ -51,6 +53,14 @@ const routes: Routes = [
   {
     path:'cart-page',
     component:CartPageComponent
+  },
+  {
+    path:'checkoutPage',
+    component:CheckoutComponent
+  },
+  {
+    path:'my-order',
+    component:OrderComponent
   }
 ];
 

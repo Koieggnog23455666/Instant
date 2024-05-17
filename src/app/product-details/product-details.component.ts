@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from 'express';
 import { ProductService } from '../services/product.service';
 import { Cart, Product } from '../interface';
+import { ToastrService } from 'ngx-toastr';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -15,7 +17,8 @@ export class ProductDetailsComponent implements OnInit {
   removeCart:boolean=false
   cartData:Product|undefined
   cartItem:number=0
-constructor(private router:ActivatedRoute,private product:ProductService){}
+  
+constructor(private router:ActivatedRoute,private product:ProductService,public toaster:ToastrService){}
 ngOnInit(): void {
   
   const productId=this.router.snapshot.paramMap.get('productId')
@@ -87,11 +90,12 @@ addToCart(){
       delete cartData.id
       this.product.addItemtoCart(cartData).subscribe((res)=>{
         if(res){
-          alert("Product is added to cart")
+          this.toaster.success("Item is added")
           this.product.getCartList(userId)
           this.removeCart=true
         }
       })
+      
     }
   }
  
@@ -105,8 +109,9 @@ removeFromCart(id:string){
     
   }else{
 this.cartData && this.product.removeItemFromCart(this.cartData.id).subscribe((res)=>{
-  console.log(res)
+  
   if(res){
+    this.toaster.error("Item is removed")
     this.product.getCartList(userId)
   }
 })

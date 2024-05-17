@@ -28,7 +28,8 @@
                           <p class="card-text">{{trendy.description}}</p>
                            <div class="button">
                             <a routerLink="/detail/{{trendy.id}}" class="btn btn-primary col-sm-4 but">View Detail</a>
-                            <a  class="btn btn-primary col-sm-4 but" >Add to Cart</a>
+                            <a  class="btn btn-primary col-sm-4 but"   *ngIf="!removeCart" (click)="add(trendy.id)"  >Add to Cart</a>
+                            <a  class="btn btn-primary col-sm-4 but" *ngIf="removeCart"  >Remove </a>
                            </div>
                         </div>
                       </div>

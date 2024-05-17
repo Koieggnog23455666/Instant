@@ -10,7 +10,9 @@
     padding-left: .75em;
     padding-right: .75em;
     }
-    
+    .trash{
+        cursor: pointer;
+    }
     .card-registration .select-arrow {
     top: 13px;
     }

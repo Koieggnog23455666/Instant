@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { Product } from '../interface';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-seller-update-product',
@@ -15,7 +16,7 @@ export class SellerUpdateProductComponent implements OnInit{
   imageUrl:string=""
   getImage:string=""
 
-  constructor(private route:ActivatedRoute,private product:ProductService,private router:Router){}
+  constructor(private route:ActivatedRoute,private product:ProductService,private router:Router,private toaster:ToastrService){}
   
 ngOnInit(): void {
   let productId=this.route.snapshot.paramMap.get('id')
@@ -33,13 +34,13 @@ productId && this.product.getProduct(productId).subscribe((productData)=>{
     const image = this.imageUrl ? this.imageUrl : this.getImage;
     this.product.updateProduct({...data,image:image}).subscribe((res)=>{
       if(res){
-        this.updatedMessage="Product Updated"
+        this.toaster.success("Product is updated")
       }
     })
     setTimeout(() => {
-      this.updatedMessage=''
+      
 this.router.navigate(['seller-home'])
-    }, 3000);
+    }, 2000);
   }
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
